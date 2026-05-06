@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="src/NFramework.Logging.Abstractions/NFramework.Logging.Abstractions.csproj" />
+  <Project Path="tests/unit/NFramework.Logging.Abstractions.Tests/NFramework.Logging.Abstractions.Tests.csproj" />
+</Solution>

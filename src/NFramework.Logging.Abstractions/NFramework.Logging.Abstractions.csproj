@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net11.0</TargetFramework>
+    <AssemblyName>NFramework.Logging.Abstractions</AssemblyName>
+    <RootNamespace>NFramework.Logging.Abstractions</RootNamespace>
+    <Description>Logging abstractions for NFramework.</Description>
+    <PackageId>NFramework.Logging.Abstractions</PackageId>
+    <PackageTags>logging;abstractions;nframework</PackageTags>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <IsPackable>true</IsPackable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="10.0.6" />
+  </ItemGroup>
+</Project>
