@@ -2,16 +2,24 @@
 set -euo pipefail
 
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
-source "${REPO_ROOT}/packages/acore-scripts/src/logger.sh"
 
+# shellcheck source=packages/acore-scripts/src/logger.sh
+source "${SCRIPT_DIR}/../packages/acore-scripts/src/logger.sh"
+
+REPO_ROOT="$(cd "${SCRIPT_DIR}/.." && pwd)"
 cd "$REPO_ROOT"
 
-acore_log_section "🎨 Formatting code..."
+acore_log_info "Running format for all projects..."
 
-dotnet format src/NFramework.Logging.Abstractions/NFramework.Logging.Abstractions.csproj
-dotnet format src/NFramework.Logging/NFramework.Logging.csproj
-dotnet format tests/unit/NFramework.Logging.Abstractions.Tests/NFramework.Logging.Abstractions.Tests.csproj
-dotnet format tests/unit/NFramework.Logging.Tests/NFramework.Logging.Tests.csproj
+for helper_format in "${SCRIPT_DIR}/helpers"/*/format.sh; do
+	[ -f "$helper_format" ] || continue
+	bash "$helper_format"
+done
 
-acore_log_success "✅ Formatting complete!"
+for project_format in "${REPO_ROOT}"/src/*/scripts/format.sh; do
+	[ -f "$project_format" ] || continue
+	project_name="$(basename "$(dirname "$(dirname "$project_format")")")"
+	acore_log_divider
+	acore_log_info "▶️ Running format in src/$project_name..."
+	bash "$project_format"
+done

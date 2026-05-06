@@ -9,7 +9,6 @@ cd "$REPO_ROOT"
 
 acore_log_section "🧪 Running tests..."
 
-dotnet test tests/unit/NFramework.Logging.Abstractions.Tests/NFramework.Logging.Abstractions.Tests.csproj --verbosity normal
-dotnet test tests/unit/NFramework.Logging.Tests/NFramework.Logging.Tests.csproj --verbosity normal
+dotnet test NFramework.Logging.slnx --verbosity normal
 
 acore_log_success "✅ All tests passed!"
