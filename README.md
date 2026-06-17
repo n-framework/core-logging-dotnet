@@ -16,46 +16,46 @@ tests/
     │   └── NFramework.Logging.Abstractions.Tests.csproj
     └── NFramework.Logging.Tests/                - Unit tests for implementation
         └── NFramework.Logging.Tests.csproj
-```
+```text
 
 ## Build
 
 ```bash
 make build
-```
+```text
 
 Or directly:
 
 ```bash
 dotnet build NFramework.Logging.slnx
-```
+```text
 
 ## Test
 
 ```bash
 make test
-```
+```text
 
 Or directly:
 
 ```bash
 dotnet test NFramework.Logging.slnx
-```
+```text
 
 ## Format
 
 ```bash
 make format
-```
+```text
 
 ## Lint
 
 ```bash
 make lint
-```
+```text
 
 ## Setup
 
 ```bash
 make setup
-```
+```text
